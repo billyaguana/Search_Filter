@@ -1,0 +1,500 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<style>
+    .gray td { background-color: #efefef; }
+    td { border: 1px solid #ccc; padding: 10px; width: 200px; }    
+    .filters { margin-bottom: 20px; }
+    select { margin-right: 20px; }
+    .reset { margin-bottom: 20px; display: inline-block; }
+    .hideme { display: none !important; } 
+    .yellow { background-color: #ff0;  } 
+</style>    
+</head>
+<body>
+
+<div class="filters">
+
+<label for="filter">Position : </label>
+<select class="filter posfilter" data-tableId="table1">
+    <option class="cat-all" value="all">Select</option>
+    <option class="cat-teacher" value="teacher">Teacher</option>
+    <option class="cat-adolescent-guide" value="adolescent-guide">Adolescent Guide</option>
+    <option class="cat-head-of-school" value="head-of-school">Head of School</option>
+    <option class="cat-elementary-guide" value="elementary-guide">Elementary Guide</option>
+    <option class="cat-executive-director" value="executive-director">Executive Director</option>
+    <option class="cat-primary-guide" value="primary-guide">Primary Guide</option>
+    <option class="cat-classroom-lead" value="classroom-lead">Classroom Lead</option>
+    <option class="cat-toddler-guide" value="toddler-guide">Toddler Guide</option>
+    <option class="cat-substitute" value="substitute">Substitute</option>
+</select>
+
+<label for="filter">Location : </label>
+<select class="filter locfilter" data-tableId="table1">
+    <option value="all">Select</option>      
+    <option class="state-Alaska" value="Alaska">Alaska</option>
+    <option class="state-Arizona" value="Arizona">Arizona</option>
+    <option class="state-California" value="California">California</option>
+    <option class="state-Colorado" value="Colorado">Colorado</option>
+    <option class="state-Connecticut" value="Connecticut">Connecticut</option>
+    <option class="state-Florida" value="Florida">Florida</option>
+    <option class="state-Illinois" value="Illinois">Illinois</option>
+    <option class="state-Maryland" value="Maryland">Maryland</option>
+    <option class="state-Michigan" value="Michigan">Michigan</option>
+    <option class="state-Minnesota" value="Minnesota">Minnesota</option>
+    <option class="state-NewYork" value="NewYork">New York</option>
+    <option class="state-NorthCarolina" value="NorthCarolina">North Carolina</option>
+    <option class="state-Ohio" value="Ohio">Ohio</option>
+    <option class="state-Stanley" value="Stanley">Stanley</option>
+    <option class="state-Tennessee" value="Tennessee">Tennessee</option>
+    <option class="state-Tokyo" value="Tokyo">Tokyo</option>
+    <option class="state-Virginia" value="Virginia">Virginia</option>
+    <option class="state-Washington" value="Washington">Washington</option>
+</select>
+    
+<label for="filter">Age Level : </label>
+<select class="filter agefilter" data-tableId="table1">
+    <option value="all">Select</option>        
+    <option class="al-infancy" value="infancy">Assistants to Infancy (0-3)</option>
+    <option class="al-primary" value="primary">Primary (3-6)</option>
+    <option class="al-elementary" value="elementary">Upper Elementary (6-12)</option>
+    <option class="al-adolescents" value="adolescents">Adolescents (12-18)</option>
+</select>
+
+    
+<label for="filter">Month : </label>
+<select class="filter mosfilter" data-tableId="table1">
+    <option value="all">Select</option>    
+    <option value="April">April</option>
+    <option value="May">May</option>    
+    <option value="June">June</option>    
+    <option value="July">July</option>    
+    <option value="August">August</option>      
+</select>
+
+<label for="filter">Year : </label>
+<select class="filter yrsfilter" data-tableId="table1">
+  <option value="all">Select</option>        
+  <option value="2019">2019</option>
+</select>
+    
+</div>    
+    
+<p><input id="myInput" type="text" placeholder="Search.."></p>
+<p><a href="#" class="reset">Reset</a></p>         
+    
+    
+<table>
+  <tr class="gray">
+    <td>Title</td><td>Position</td><td>State</td><td>Age Level</td><td>Month Posted</td><td>Year</td>
+  </tr>
+</table>    
+    
+<table id="table1">    
+  <!-- data -->    
+  <tr class="row" 
+      data-position="teacher" 
+      data-location="NewYork"
+      data-age="infancy"
+      data-month="May"
+      data-year="2019">
+    <td>Mandarin-English Bilingual Assistant Teacher</td>
+    <td>Teacher</td>  
+    <td>New York</td>  
+    <td>Assistants to Infancy (0-3)</td>        
+    <td>17/05/2019</td>
+    <td>Ms. Lam Montessori</td>      
+  </tr>
+
+  <tr class="row" 
+      data-position="teacher" 
+      data-location="Ohio"
+      data-age="elementary"
+      data-month="May"
+      data-year="2019">
+    <td>Upper Elementary Assistant Teacher</td>  
+    <td>Teacher</td>  
+    <td>Ohio</td>  
+    <td>Upper Elementary (6-12)</td>  
+    <td>20/05/2019</td>  
+    <td>Ruffing Montessori School</td>        
+  </tr>
+
+  <tr class="row" 
+      data-position="adolescent-guide" 
+      data-location="Tokyo"
+      data-age="adolescents"
+      data-month="May"
+      data-year="2019">
+    <td>Adolescent Guide</td>  
+    <td>Adolescent Guide</td>  
+    <td>Tokyo / Japan</td>  
+    <td>Adolescents (12-18)</td>  
+    <td>20/05/2019</td>  
+    <td>The Montessori School of Tokyo</td>  
+  </tr>    
+
+  <tr class="row xparent yellow" 
+      data-position="elementary-guide" 
+      data-location="Colorado"
+      data-age="infancy"
+      data-month="May"
+      data-year="2019">
+    <td>Assistants to Infancy/Toddler, Primary & Elementary Guides</td>  
+    <td>Elementary Guide</td>  
+    <td>Colorado / USA 	Lakewood</td>  
+    <td>Assistants to Infancy (0-3), Primary (3-6), Upper Elementary (6-12)</td>  
+    <td>20/05/2019</td>  
+    <td>Great Work Montessori</td>  
+  </tr>    
+    
+  <tr class="row xchild yellow" 
+      data-position="elementary-guide" 
+      data-location="Colorado"
+      data-age="infancy"
+      data-month="May"
+      data-year="2019">
+    <td>Assistants to Infancy/Toddler, Primary & Elementary Guides</td>  
+    <td>Elementary Guide</td>  
+    <td>Colorado / USA 	Lakewood</td>  
+    <td>Assistants to Infancy (0-3)</td>  
+    <td>20/05/2019</td>  
+    <td>Great Work Montessori</td>  
+  </tr>
+    
+  <tr class="row xchild yellow" 
+      data-position="elementary-guide" 
+      data-location="Colorado"
+      data-age="primary"
+      data-month="May"
+      data-year="2019">
+    <td>Assistants to Infancy/Toddler, Primary & Elementary Guides</td>  
+    <td>Elementary Guide</td>  
+    <td>Colorado / USA 	Lakewood</td>  
+    <td>Primary (3-6)</td>  
+    <td>20/05/2019</td>  
+    <td>Great Work Montessori</td>  
+  </tr>
+    
+  <tr class="row xchild yellow" 
+      data-position="elementary-guide" 
+      data-location="Colorado"
+      data-age="elementary"
+      data-month="May"
+      data-year="2019">
+    <td>Assistants to Infancy/Toddler, Primary & Elementary Guides</td>  
+    <td>Elementary Guide</td>  
+    <td>Colorado / USA 	Lakewood</td>  
+    <td>Upper Elementary (6-12)</td>  
+    <td>20/05/2019</td>  
+    <td>Great Work Montessori</td>  
+  </tr>    
+    
+
+  <tr class="row" 
+      data-position="elementary-guide" 
+      data-location="California"
+      data-age="infancy"
+      data-month="May"
+      data-year="2019">
+    <td>Infant, Toddler, Primary & Elementary Guides & Assistants</td>  
+    <td>Elementary Guide</td>  
+    <td>California / USA</td>  
+    <td>Assistants to Infancy (0-3), Primary (3-6), Upper Elementary (6-12)</td>  
+    <td>17/05/2019</td>        
+    <td>LePort Montessori</td>  
+  </tr>	
+
+  <tr class="row" 
+      data-position="executive-director" 
+      data-location="Alaska"
+      data-age=""
+      data-month="May"
+      data-year="2019">
+    <td>Executive Director</td>  
+    <td>Executive Director</td>  
+    <td>Alaska / USA</td>  
+    <td></td>  
+    <td>17/05/2019</td>        
+    <td>Juneau Montessori School</td>  
+  </tr>	 		 	 	
+
+	
+  <tr class="row" 
+      data-position="elementary-guide" 
+      data-location="Stanley"
+      data-age="infancy"
+      data-month="May"
+      data-year="2019">
+    <td>Montessori Guides (0-3, 3-6, 6-9, 9-12)</td>  
+    <td>Elementary Guide</td>  
+    <td>Stanley / Hong Kong</td>  
+    <td>Assistants to Infancy (0-3), Primary (3-6), Upper Elementary (6-12)</td>  
+    <td>16/05/2019</td>        
+    <td>The International Montessori School</td>  
+  </tr>
+    
+
+  <tr class="row" 
+      data-position="primary-guide" 
+      data-location="Virginia"
+      data-age="primary"
+      data-month="April"
+      data-year="2019">
+    <td>AMI Primary Lead Guide</td>  
+    <td>Primary Guide</td>  
+    <td>Virginia / USA</td>  
+    <td>Primary (3-6)</td>  
+    <td>24/04/2019</td>        
+    <td>Albemarle Montessori Children's Community</td>  
+  </tr>    
+	
+
+  <tr class="row" 
+      data-position="teacher" 
+      data-location="Washington"
+      data-age="elementary"
+      data-month="April"
+      data-year="2019">
+    <td>AMI Certified Elementary Teacher</td>  
+    <td>Teacher</td>  
+    <td>Washington / USA</td>  
+    <td>Upper Elementary (6-12) </td>  
+    <td>23/04/2019</td>        
+    <td>Christian Family Montessori School</td>  
+  </tr>
+
+
+  <tr class="row" 
+      data-position="teacher" 
+      data-location="Washington"
+      data-age="primary"
+      data-month="April"
+      data-year="2019">
+    <td>AMI Certified Primary Teacher</td>  
+    <td>Teacher</td>  
+    <td>Washington / USA</td>  
+    <td>Primary (3-6) </td>  
+    <td>23/04/2019</td>        
+    <td>Christian Family Montessori School</td>  
+  </tr>	
+    
+
+  <tr class="row" 
+      data-position="toddler-guide" 
+      data-location="Washington"
+      data-age="infancy"
+      data-month="April"
+      data-year="2019">
+    <td>AMI Trained Guides, Full-time Substitute, Spanish-speaking Toddler Assistant</td>  
+    <td>Infancy/Toddler Guide</td>  
+    <td>Washington / USA</td>  
+    <td>Assistants to Infancy (0-3)</td>  
+    <td>23/04/2019</td>        
+    <td>Aidan Montessori School</td>  
+  </tr>
+    	
+        
+  <tr class="row" 
+      data-position="teacher" 
+      data-location="Maryland"
+      data-age="primary"
+      data-month="April"
+      data-year="2019">
+    <td>AMI Certified Primary Teacher</td>  
+    <td>Teacher</td>  
+    <td>Maryland / USA</td>  
+    <td>Primary (3-6)</td>  
+    <td>23/04/2019</td>        
+    <td>Crestview Montessori School</td>  
+  </tr>
+
+    
+  <tr class="row" 
+      data-position="head-of-school" 
+      data-location="Connecticut"
+      data-age="primary"
+      data-month="April"
+      data-year="2019">
+    <td>Principal</td>  
+    <td>Head of School</td>  
+    <td>Connecticut / USA</td>  
+    <td>Primary (3-6)</td>  
+    <td>23/04/2019</td>        
+    <td>Montessori Magnet School at Batchelder</td>  
+  </tr>
+    
+    
+  <tr class="row" 
+      data-position="elementary-guide" 
+      data-location="Washington"
+      data-age="elementary"
+      data-month="April"
+      data-year="2019">
+    <td>AMI Trained Elementary Guide</td>  
+    <td>Elementary Guide</td>  
+    <td>Washington / USA</td>  
+    <td>Upper Elementary (6-12)</td>  
+    <td>22/04/2019</td>        
+    <td>Little Oak Montessori School </td>  
+  </tr>
+    
+
+  <tr class="row" 
+      data-position="elementary-guide" 
+      data-location="Florida"
+      data-age="elementary"
+      data-month="April"
+      data-year="2019">
+    <td>AMI Certified Elementary Guide</td>  
+    <td>Elementary Guide</td>  
+    <td>Florida / USA</td>  
+    <td>Upper Elementary (6-12)</td>  
+    <td>22/04/2019</td>        
+    <td>Montessori Institute of Broward</td>  
+  </tr>    
+	
+
+  <tr class="row" 
+      data-position="primary-guide" 
+      data-location="Florida"
+      data-age="primary"
+      data-month="April"
+      data-year="2019">
+    <td>Primary Guide</td>  
+    <td>Primary Guide</td>  
+    <td>Illinois / USA</td>  
+    <td>Primary (3-6)</td>  
+    <td>22/04/2019</td>        
+    <td>West Suburban Montessori School</td>  
+  </tr>    
+
+    
+  <tr class="row" 
+      data-position="primary-guide" 
+      data-location="Florida"
+      data-age="primary"
+      data-month="April"
+      data-year="2019">
+    <td>Lower Elementary Lead Guide</td>  
+    <td>Primary Guide</td>  
+    <td>Minnesota / USA</td>  
+    <td>Primary (3-6)</td>  
+    <td>19/04/2019</td>        
+    <td>Montessori School of Duluth</td>  
+  </tr>      
+    
+
+  <tr class="row" 
+      data-position="primary-guide" 
+      data-location="Florida"
+      data-age="infancy"
+      data-month="April"
+      data-year="2019">
+    <td>Montessori Toddler and Primary Teacher</td>  
+    <td>Infancy/Toddler Guide</td>  
+    <td>New York / USA</td>  
+    <td>Primary (3-6)</td>  
+    <td>19/04/2019</td>        
+    <td>The Nurtury Montessori School</td>  
+  </tr>     
+   
+    
+</table>
+
+   
+    
+<!-- 
+notes :     
+
+    if an option has 3 data eg. 
+    whatever Assistants to Infancy (0-3), Primary (3-6), Upper Elementary (6-12)
+
+    just create 3 IDENTICAL entries
+
+    whatever 1 Assistants to Infancy (0-3), Primary (3-6), Upper Elementary (6-12) - infancy
+    whatever 2 Assistants to Infancy (0-3), Primary (3-6), Upper Elementary (6-12) - primary       
+    whatever 3 Assistants to Infancy (0-3), Primary (3-6), Upper Elementary (6-12) - elementary
+
+    whatever 1 <- display on initial
+    whatever 2 <- display none (will be displayed on filter) ie primary filter
+    whatever 3 <- display none (will be displayed on filter) ie elementary filter
+
+-->
+    
+    
+<script>
+$(document).ready(function(){   
+    
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+      
+    $("#table1 tr").filter(function() {
+      $(this).toggle(
+          $(this).text().toLowerCase().indexOf(value) > -1
+      )
+    });
+      
+  });   
+    
+  $(".xchild").addClass("hideme");    
+    
+});     
+    
+$(".filter").change(function() {
+    var posfilter = $(".posfilter").val();
+    var locfilter = $(".locfilter").val();
+    var agefilter = $(".agefilter").val();    
+    var mosfilter = $(".mosfilter").val();
+    var yrsfilter = $(".yrsfilter").val();    
+
+    
+    var row = $('.row'); 
+    row.hide()
+
+    row.each(function(i, el) {
+        var posdata = $(el).attr('data-position');
+        var locdata = $(el).attr('data-location');
+        var agedata = $(el).attr('data-age');
+        var mosdata = $(el).attr('data-month');
+        var yrsdata = $(el).attr('data-year');
+        var all = "all";
+        
+        if(posdata == posfilter || posfilter == all) {
+            if(locdata == locfilter || locfilter == all) {
+                if(agedata == agefilter || agefilter == all) {
+                    if(mosdata == mosfilter || mosfilter == all) {
+                        if(yrsdata == yrsfilter || yrsfilter == all) {
+                            $(el).show(); 
+                        }
+                    }
+                }
+            }
+        } 
+        
+    })
+});
+    
+$(".agefilter").change(function() {
+    var agefilter = $(".agefilter").val();
+    if(agefilter == "all") {
+        $(".xparent").show();
+        $(".xchild").addClass("hideme");
+    } else {
+        $(".xparent").hide();
+        $(".xchild").removeClass("hideme");
+    }
+});    
+    
+$(".reset").click(function() {    
+   var row = $('.row'); 
+   $(".filter").val("all");    
+   row.show()    
+   $(".xchild").addClass("hideme"); 
+});    
+    
+    
+
+</script>
+</body>
+<html>
